@@ -270,6 +270,26 @@ WHERE city = 'Auckland'
             </tr>
           </table>
         </span>
+        <span class="fragment"><br>
+          <table class="cass">
+            <!--<tr><th>key</th><th colspan="3">columns...</th></tr>-->
+            <tr><td class="key">Auckland</td>
+              <td><table class="col"><tr><th>status:std|time:2009-01-23|15</th></tr><tr><td>_</td></tr></table></td>
+              <td><table class="col"><tr><th>status:<b>vip</b>|time:2011-05-20|10</th></tr><tr><td>_</td></tr></table></td>
+              <td><table class="col"><tr><th>...</th></tr><tr><td>...</td></tr></table></td>
+            </tr>
+          </table>
+        </span>
+        <span class="fragment"><br>
+          <table class="cass">
+            <!--<tr><th>key</th><th colspan="3">columns...</th></tr>-->
+            <tr><td class="key">Auckland</td>
+              <td><table class="col"><tr><th>status:std|time:2009-01-23|id:15</th></tr><tr><td>_</td></tr></table></td>
+              <td><table class="col"><tr><th>status:<b>vip</b>|time:2011-05-20|id:10</th></tr><tr><td>_</td></tr></table></td>
+              <td><table class="col"><tr><th>...</th></tr><tr><td>...</td></tr></table></td>
+            </tr>
+          </table>
+        </span>
       </section>
       <section>
         <pre><code>SELECT id 
@@ -304,18 +324,26 @@ WHERE time > '2011-02-03'
     </section>
     <section>
       <section>
-        <h2>Replication</h2>
+        <h2>HA</h2>
       </section>
       <section><img class="no-border" width="80%" src="img/cass/ha.svg" /></section>
       <section><img class="no-border" width="80%" src="img/cass/haOut.svg" /></section>
       <section><img class="no-border" width="80%" src="img/cass/2rings.svg" /></section>
     </section>
+    <section>
+      <h2>Questions?</h2>
+      <br><br>
+      http://movio.co<br>
+      @kalmanb
+    </section>
+
   </div>
 
   <div>
     ACID
     CAP
-eventual consistency
+    eventual consistency
+    add backend anyltics laters
   </div>
 
 
