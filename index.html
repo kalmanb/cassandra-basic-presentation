@@ -329,28 +329,26 @@ WHERE city = 'Auckland'
           <table class="cass">
             <tr><th>key</th><th colspan="3">columns...</th></tr>
             <tr><td class="key">Auckland</td>
-              <td><table class="col"><tr><th>status:std|time:2009-01-23</th></tr><tr><td>15</td></tr></table></td>
-              <td><table class="col"><tr><th>status:<b>vip</b>|time:2011-05-20</th></tr><tr><td>10</td></tr></table></td>
+              <td><table class="col"><tr><th>status:vip|time:2009_01_23</th></tr><tr><td>15</td></tr></table></td>
+              <td><table class="col"><tr><th>status:std|time:2011_05_20</th></tr><tr><td>10</td></tr></table></td>
               <td><table class="col"><tr><th>...</th></tr><tr><td>...</td></tr></table></td>
             </tr>
           </table>
         </div>
         <div class="fragment"><br>
           <table class="cass">
-            <!--<tr><th>key</th><th colspan="3">columns...</th></tr>-->
             <tr><td class="key">Auckland</td>
-              <td><table class="col"><tr><th>status:std|time:2009-01-23|id:15</th></tr><tr><td>_</td></tr></table></td>
-              <td><table class="col"><tr><th>status:<b>vip</b>|time:2011-05-20|id:10</th></tr><tr><td>_</td></tr></table></td>
+              <td><table class="col"><tr><th>status:vip|time:2009_01_23|id:15</th></tr><tr><td>_</td></tr></table></td>
+              <td><table class="col"><tr><th>status:std|time:2011_05_20|id:10</th></tr><tr><td>_</td></tr></table></td>
               <td><table class="col"><tr><th>...</th></tr><tr><td>...</td></tr></table></td>
             </tr>
           </table>
         </div>
         <div class="fragment"><br>
           <table class="cass">
-            <!--<tr><th>key</th><th colspan="3">columns...</th></tr>-->
             <tr><td class="key">Auckland</td>
-              <td><table class="col"><tr><th>std|2009-01-23|15</th></tr><tr><td>_</td></tr></table></td>
-              <td><table class="col"><tr><th><b>vip</b>|2011-05-20|10</th></tr><tr><td>_</td></tr></table></td>
+              <td><table class="col"><tr><th>vip|2009_01_23|15</th></tr><tr><td>_</td></tr></table></td>
+              <td><table class="col"><tr><th>std|2011_05_20|10</th></tr><tr><td>_</td></tr></table></td>
               <td><table class="col"><tr><th>...</th></tr><tr><td>...</td></tr></table></td>
             </tr>
           </table>
@@ -358,23 +356,21 @@ WHERE city = 'Auckland'
       </section>
       <section>
           <table class="cass">
-            <!--<tr><th>key</th><th colspan="3">columns...</th></tr>-->
             <tr><td class="key">Auckland</td>
-              <td><table class="col"><tr><th>std|2009-01-23|15</th></tr><tr><td>_</td></tr></table></td>
-              <td><table class="col"><tr><th><b>vip</b>|2011-05-20|10</th></tr><tr><td>_</td></tr></table></td>
+              <td><table class="col"><tr><th>vip|2009_01_23|15</th></tr><tr><td>_</td></tr></table></td>
+              <td><table class="col"><tr><th>std|2011_05_20|10</th></tr><tr><td>_</td></tr></table></td>
               <td><table class="col"><tr><th>...</th></tr><tr><td>...</td></tr></table></td>
             </tr>
           </table>
           <br>
         <div class="fragment">
           <table class="cass">
-            <!--<tr><th>key</th><th colspan="3">columns...</th></tr>-->
-            <tr><td class="key">Auckland:std</td>
-              <td><table class="col"><tr><th>2009-01-23|15</th></tr><tr><td>_</td></tr></table></td>
+            <tr><td class="key">Auckland:vip</td>
+              <td><table class="col"><tr><th>2009_01_23|15</th></tr><tr><td>_</td></tr></table></td>
               <td><table class="col"><tr><th>...</th></tr><tr><td>...</td></tr></table></td>
             </tr>
-            <tr><td class="key">Auckland:<b>vip</b></td>
-              <td><table class="col"><tr><th>2011-05-20|10</th></tr><tr><td>_</td></tr></table></td>
+            <tr><td class="key">Auckland:std</td>
+              <td><table class="col"><tr><th>2011_05_20|10</th></tr><tr><td>_</td></tr></table></td>
               <td><table class="col"><tr><th>...</th></tr><tr><td>...</td></tr></table></td>
             </tr>
           </table>
@@ -419,6 +415,100 @@ WHERE time > '2011-02-03'
       <section><img class="no-border" width="80%" src="img/cass/haOut.svg" /></section>
       <section><img class="no-border" width="80%" src="img/cass/2rings.svg" /></section>
       <section><img class="no-border" width="80%" src="img/cass/2ringsBack.svg" /></section>
+    </section>
+    <section>
+      <section>
+        <h2>Other</h2>
+      </section>
+      <section>
+        <h2>CQL</h2><pre><code>CREATE TABLE monkeySpecies (
+    species text PRIMARY KEY,
+    common_name text,
+    population varint,
+    average_size int
+) WITH comment='Important biological records'
+   AND read_repair_chance = 1.0;
+
+CREATE TABLE timeline (
+    userid uuid,
+    posted_month int,
+    posted_time uuid,
+    body text,
+    posted_by text,
+    PRIMARY KEY (userid, posted_month, posted_time)
+) WITH compaction = { 'class' : 'LeveledCompactionStrategy' };</code></pre>
+      </section>
+      <section>
+        <h2>CQL</h2><pre><code>UPDATE UserActions 
+SET total = total + 2 
+WHERE user = '9908-4AE3'
+    AND action = 'click';</code></pre>
+        <div class="fragment">
+          <pre><code>DELETE phone 
+FROM Users 
+WHERE userid 
+  IN ('AF08-40F3', '9908-4AE3');</code></pre>
+        </div>
+      </section>
+      <section>
+        Batches
+          <pre><code>BEGIN BATCH
+    INSERT INTO users (userid, password, name) 
+        VALUES ('user2', 'ch@ngem3b', 'second user');
+    UPDATE users SET password = 'ps22dhds' WHERE userid = 'user3';
+    INSERT INTO users (userid, password) VALUES ('user4', 'ch@ngem3c');
+    DELETE name FROM users WHERE userid = 'user1';
+APPLY BATCH;</code></pre>
+          If any of the batch succeeds then all of it will
+      </section>
+      <section>
+        Secondary Indexes
+      </section>
+      <section>
+        Specify Timestamps
+      </section>
+      <section>
+        TTL's
+      </section>
+      <section>
+        Counters
+      </section>
+      <section>
+        ID's
+      </section>
+      <section>
+        Filtering
+      </section>
+      <section>
+        <h2>Collections</h2>
+        <ul>
+          <li>Maps</li>
+          <li>Sets</li>
+          <li>Lists</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Maps</h2>
+        <pre><code>CREATE TABLE member (
+    id text PRIMARY KEY,
+    favs map<text, text>   // A map of text keys, and text values
+)
+
+// Inserting (or Updating)
+INSERT INTO members (id, favs)
+    VALUES ('jsmith', { 'fruit' : 'apple', 'band' : 'Beatles' })</code></pre>
+      </section>
+      <section>
+        <h2>Lightweight Transactions</h2>
+        <pre><code>INSERT INTO member (name, city) 
+VALUES (‘John’, ‘Auckland’)
+IF NOT EXISTS;</code></pre>
+        
+        <div class="fragment">
+        <pre><code>UPDATE member
+SET email = 'new@gmail.com'
+IF email = 'orig@gmail.com';</code></pre>
+      </section>
     </section>
     <section>
       <h2>Questions?</h2>
