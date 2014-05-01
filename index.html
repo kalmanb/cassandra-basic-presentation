@@ -157,6 +157,7 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
         <ul>
         <li>Write vs Read</li>
         <li class="fragment">Know your queries</li>
+        <li class="fragment">No joins</li>
         <li class="fragment">No transactions</li>
       </ul>
       </section>
@@ -179,10 +180,12 @@ try {
       </section>
       <section>
         <h3>Tools</h3>
-        Key value lookup<br>
-        <pre><code>SELECT * FROM member WHERE id = 123</code></pre>
-        <br>
-        <i>* Linear scale</i>
+          <div class="fragment">
+          Key value lookup<br>
+          <pre><code>SELECT * FROM member WHERE id = 123</code></pre>
+          <br>
+          <i>* Linear scale</i>
+        </div>
       </section>
       <section>
         Range Queries
@@ -196,6 +199,7 @@ try {
         <h2>Queries</h2>
       </section>
       <section>
+        Think SQL
         <pre><code>SELECT * 
 FROM member 
 WHERE id = 15
@@ -217,6 +221,30 @@ WHERE id = 15
         </div>
       </section>
       <section>
+        No Schema
+        <pre><code>SELECT * 
+FROM member 
+WHERE id = 15
+        </code></pre>
+        <div class="fragment"><br>
+          <table class="cass">
+            <tr><th>key</th><th colspan="3">columns...</th></tr>
+            <tr><td class="key">15</td>
+              <td><table class="col"><tr><th>name</th></tr><tr><td>Sam</td></tr></table></td>
+              <td><table class="col"><tr><th>city</th></tr><tr><td>Auckland</td></tr></table></td>
+              <td><table class="col"><tr><th>gender</th></tr><tr><td>Male</td></tr></table></td>
+              <td><table class="col"><tr><th>time</th></tr><tr><td>2011-05-22</td></tr></table></td>
+            </tr>
+            <tr><td class="key">16</td>
+              <td><table class="col"><tr><th>name</th></tr><tr><td>Joe</td></tr></table></td>
+              <td><table class="col"><tr><th>city</th></tr><tr><td>Wellington</td></tr></table></td>
+              <td><table class="col"><tr><th>time</th></tr><tr><td>2012-09-23</td></tr></table></td>
+            </tr>
+          </table>
+        </div>
+      </section>
+      <section>
+        Wide Rows
         <pre><code>SELECT id 
 FROM member 
 WHERE city = 'Auckland'
@@ -228,6 +256,10 @@ WHERE city = 'Auckland'
               <td><table class="col"><tr><th>10</th></tr><tr><td>_</td></tr></table></td>
               <td><table class="col"><tr><th>11</th></tr><tr><td>_</td></tr></table></td>
               <td><table class="col"><tr><th>15</th></tr><tr><td>_</td></tr></table></td>
+              <td><table class="col"><tr><th>19</th></tr><tr><td>_</td></tr></table></td>
+              <td><table class="col"><tr><th>33</th></tr><tr><td>_</td></tr></table></td>
+              <td><table class="col"><tr><th>36</th></tr><tr><td>_</td></tr></table></td>
+              <td><table class="col"><tr><th>49</th></tr><tr><td>_</td></tr></table></td>
               <td><table class="col"><tr><th>...</th></tr><tr><td>_</td></tr></table></td>
             </tr>
             <tr><td class="key">Wellington</td>
@@ -240,6 +272,7 @@ WHERE city = 'Auckland'
         </div>
       </section>
       <section>
+        Range Queries
         <pre><code>SELECT id 
 FROM member 
 WHERE time > '2011-02-03'  
@@ -258,6 +291,7 @@ WHERE time > '2011-02-03'
         </div>
       </section>
       <section>
+        Multiple Params
         <pre><code>SELECT id 
 FROM member 
 WHERE city = 'Auckland' 
@@ -283,6 +317,7 @@ WHERE city = 'Auckland'
         </div>
       </section>
       <section>
+        Even More Params
         <pre><code>SELECT id 
 FROM member 
 WHERE city = 'Auckland' 
@@ -331,6 +366,7 @@ WHERE city = 'Auckland'
             </tr>
           </table>
           <br>
+        <div class="fragment">
           <table class="cass">
             <!--<tr><th>key</th><th colspan="3">columns...</th></tr>-->
             <tr><td class="key">Auckland:std</td>
@@ -342,6 +378,7 @@ WHERE city = 'Auckland'
               <td><table class="col"><tr><th>...</th></tr><tr><td>...</td></tr></table></td>
             </tr>
           </table>
+        </div>
       </section>
       <section>
         <pre><code>SELECT id 
@@ -350,7 +387,7 @@ WHERE time > '2011-02-03'
   AND time < '2012-01-01' 
   AND city = 'Auckland' 
         </code></pre>
-        <div class="fragment">We can only have a single range query and it must be at the last field</div>
+        We can only have a single range query and it must be at the last field
       </section>
     </section>
     <section>
