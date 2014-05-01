@@ -139,7 +139,9 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
     </section>
     <section>
       <section>
-        <h2>Cassandra</h2>
+        <h1>Cassandra</h1>
+      </section>
+      <section>
         <ul>
           <li>Amazon Dynamo (ring)</li>
           <li>Google Bigtable</li>
@@ -196,7 +198,7 @@ try {
     </section>
     <section>
       <section>
-        <h2>Queries</h2>
+        <h1>Queries</h1>
       </section>
       <section>
         Think SQL
@@ -388,7 +390,7 @@ WHERE time > '2011-02-03'
     </section>
     <section>
       <section>
-        <h2>Architecture</h2>
+        <h1>Architecture</h1>
       </section>
       <section><img class="no-border" width="80%" src="img/cass/4nodes.svg" /></section>
       <section><img class="no-border" width="80%" src="img/cass/tokens.svg" /></section>
@@ -399,7 +401,7 @@ WHERE time > '2011-02-03'
     </section>
     <section>
       <section>
-        <h2>Replication</h2>
+        <h1>Replication</h1>
       </section>
       <section><img class="no-border" width="80%" src="img/cass/replication.svg" /></section>
       <section>RF:3 - CL One - CL Quorum - CL ALL <img class="no-border" width="80%" src="img/cass/replicationFactor.svg" />
@@ -409,7 +411,7 @@ WHERE time > '2011-02-03'
     </section>
     <section>
       <section>
-        <h2>HA</h2>
+        <h1>HA</h1>
       </section>
       <section><img class="no-border" width="80%" src="img/cass/ha.svg" /></section>
       <section><img class="no-border" width="80%" src="img/cass/haOut.svg" /></section>
@@ -418,7 +420,19 @@ WHERE time > '2011-02-03'
     </section>
     <section>
       <section>
-        <h2>Other</h2>
+        <h1>Other</h1>
+      </section>
+      <section>
+        <h2>CQL</h2><pre><code>UPDATE UserActions 
+SET total = total + 2 
+WHERE user = '9908-4AE3'
+    AND action = 'click';</code></pre>
+        <div class="fragment">
+          <pre><code>DELETE phone 
+FROM Users 
+WHERE userid 
+  IN ('AF08-40F3', '9908-4AE3');</code></pre>
+        </div>
       </section>
       <section>
         <h2>CQL</h2><pre><code>CREATE TABLE monkeySpecies (
@@ -437,18 +451,6 @@ CREATE TABLE timeline (
     posted_by text,
     PRIMARY KEY (userid, posted_month, posted_time)
 ) WITH compaction = { 'class' : 'LeveledCompactionStrategy' };</code></pre>
-      </section>
-      <section>
-        <h2>CQL</h2><pre><code>UPDATE UserActions 
-SET total = total + 2 
-WHERE user = '9908-4AE3'
-    AND action = 'click';</code></pre>
-        <div class="fragment">
-          <pre><code>DELETE phone 
-FROM Users 
-WHERE userid 
-  IN ('AF08-40F3', '9908-4AE3');</code></pre>
-        </div>
       </section>
       <section>
         Batches
@@ -471,6 +473,10 @@ APPLY BATCH;</code></pre>
         TTL's
       </section>
       <section>
+        Tombstones
+        GC Grace
+      </section>
+      <section>
         Counters
       </section>
       <section>
@@ -478,6 +484,9 @@ APPLY BATCH;</code></pre>
       </section>
       <section>
         Filtering
+      </section>
+      <section>
+        Joins (Denormalisation)
       </section>
       <section>
         <h2>Collections</h2>
@@ -511,7 +520,7 @@ IF email = 'orig@gmail.com';</code></pre>
       </section>
     </section>
     <section>
-      <h2>Questions?</h2>
+      <h1>Questions?</h1>
       <br><br>
       http://movio.co<br>
       @kalmanb
