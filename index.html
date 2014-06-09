@@ -11,9 +11,7 @@
 </style>
 <meta charset="utf-8">
 
-<title>Cassandra</title>
-
-<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+<title>Intro to BigData</title>
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -88,44 +86,124 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
     </section>
     <section>
       <section>
-        <h3>So what's the problem?</h3>
-      </section>
-      <section>
-        2M members = 4 CPU thingees<br>
-        <div class="fragment">
-          4M members = 16 CPU thingees<br>
-        </div>
-        <div class="fragment">
-          20M members = oh no!<br>
-        </div>
-      </section>
-      <section>
+        <h1>Big Data</h1>
         <ul>
-          <li>Aggregation</li>
-          <li>Tuning</li>
-          <li>SSD's</li>
-          <li>...</li>
+          <li>Why</li>
+          <li>What</li>
+          <li>Cassandra</li>
         </ul>
       </section>
-    </section>
-    <section>
       <section>
-        <h1>Solutions</h1>
+        <h2>Why</h2>
       </section>
       <section>
-        <h2>Big data</h2>
-        <div><br><br></div>
         <img class="no-border" width="40%" src="img/google.png" /> <br/>
         <img class="no-border" width="40%" src="img/twitter.png" /> <br/>
         <img class="no-border" width="40%" src="img/facebook.png" /> <br/>
       </section>
       <section>
-        <h2>Options</h2>
-        Hadoop / Mongo / Redis / CouchDB / HBase / Riak / Neo4j<br>
-        ???                                                    
+        Google processes ~20 petabytes / day (apparently)
+        <div class="fragment">
+          20,000,000,000,000,000 Bytes
+        </div>
       </section>
       <section>
-        <h2>Why Cassandra</h2>
+        Disk is cheap (now)
+      </section>
+      <section>
+        We've learnt to do things with the data:<br>
+        Machine Learning / Data Mining
+        Neural Networks
+        Clustering
+        Recommendations
+      </section>
+      <section>
+        <h1>How</h1>
+      </section>
+      <section>
+        Can we do this on a traditional RDBMS?
+      </section>
+      
+      <section>
+        <h1>RDBMS - NoSQL - NewSQL</h1>
+      </section>
+      <section>
+        <h2>Assistance</h2>
+        IMAGE
+      </section>
+      <section>
+        Commodity Hardware - CPU - RAM - Disk
+      </section>
+      <section>
+        To be clear SQL/RDBMS would be great if we could scale it...
+      </section>
+      <section>
+        <h2>Options</h2>
+        Map Reduce
+        Graph DB
+        Key Value
+        Document
+        New SQL
+        All of the above...
+      </section>
+      <section>
+        <h2>Map / Reduce - Hadoop</h2>
+        Hadoop
+      </section>
+      <section>
+        Hadoop Example
+      </section>
+      <section>
+        Graph DB - Neo4J / Titan
+        Example
+      </section>
+      <section>
+        Key Value Store
+        Riak - Cassandra - lots more
+        Facebook - mysql
+      </section>
+      <section>
+        Document DB
+        Couch
+        Eastic Search
+      </section>
+      <section>
+        New SQL (OLTP)
+      </section>
+      <section>
+        Lambda Architecture
+      </section>
+        
+      </section>
+      <section>
+      </section>
+      <section>
+      </section>
+      <section>
+      </section>
+      <section>
+      </section>
+      <section>
+      </section>
+      <section>
+      </section>
+      <section>
+      </section>
+      <section>
+      </section>
+      
+
+
+      Sharding
+      Hive / Shark examples
+      Schemaless
+      Will RDBMS go away?
+      Michael Stonebraker - Software Engineering Radio
+
+
+
+      <section>
+        <h2>Cassandra</h2>
       </section>
       <section>
         Linear scalability<br>
