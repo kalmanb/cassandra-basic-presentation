@@ -11,9 +11,7 @@
 </style>
 <meta charset="utf-8">
 
-<title>Cassandra</title>
-
-<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+<title>Intro to BigData</title>
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -88,44 +86,154 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
     </section>
     <section>
       <section>
-        <h3>So what's the problem?</h3>
-      </section>
-      <section>
-        2M members = 4 CPU thingees<br>
-        <div class="fragment">
-          4M members = 16 CPU thingees<br>
-        </div>
-        <div class="fragment">
-          20M members = oh no!<br>
-        </div>
-      </section>
-      <section>
+        <h1>Big Data</h1>
         <ul>
-          <li>Aggregation</li>
-          <li>Tuning</li>
-          <li>SSD's</li>
-          <li>...</li>
+          <li>Why</li>
+          <li>What</li>
+          <li>Cassandra</li>
         </ul>
       </section>
-    </section>
-    <section>
       <section>
-        <h1>Solutions</h1>
+        <h2>Why</h2>
       </section>
       <section>
-        <h2>Big data</h2>
-        <div><br><br></div>
         <img class="no-border" width="40%" src="img/google.png" /> <br/>
         <img class="no-border" width="40%" src="img/twitter.png" /> <br/>
         <img class="no-border" width="40%" src="img/facebook.png" /> <br/>
       </section>
       <section>
-        <h2>Options</h2>
-        Hadoop / Mongo / Redis / CouchDB / HBase / Riak / Neo4j<br>
-        ???                                                    
+        Google processes ~20 petabytes / day (apparently)
+        <div class="fragment">
+          20,000,000,000,000,000 Bytes
+        </div>
       </section>
       <section>
-        <h2>Why Cassandra</h2>
+        Disk is cheap (now)
+      </section>
+      <section>
+        We learning what to do wit it:<br>
+        Machine Learning / Data Mining<br>
+        Classification<br>
+        Clustering<br>
+        Recommendations
+      </section>
+      <section>
+        <h1>How</h1>
+      </section>
+      <section>
+        Can we do this on a traditional RDBMS?
+      </section>
+      
+      <section>
+        <h2>NoSQL - NewSQL</h2>
+      </section>
+      <section>
+        <img class="no-border" width="70%" src="img/bigdata-all.png" /> <br/>
+      </section>
+      <section>
+        Commodity Hardware - CPU - RAM - Disk
+      </section>
+      <section>
+        To be clear SQL/RDBMS would be great if we could scale it...
+      </section>
+      <section>
+        <h2>Options</h2>
+        Map Reduce<br/>
+        Graph DB<br/>
+        Key Value<br/>
+        Document<br/>
+        New SQL<br/>
+        All of the above...
+      </section>
+      <section>
+        <h2>Map / Reduce - Hadoop</h2>
+        (spark)
+      </section>
+      <section>
+        Lots and lot of data - full table scan<br/>
+        Then collate
+      </section>
+      <section>
+        <img class="no-border" width="70%" src="img/MapReduce.png" /> <br/>
+      </section>
+      <section>
+        <h2>Graph DB - Neo4J / Titan</h2>
+      </section>
+      <section>
+        <img class="no-border" width="70%" src="img/drwho.png" /> <br/>
+      </section>
+      <section>
+        Social Graph<br/>
+        Spatial Data - cities/roads<br/>
+        Combine both...
+      </section>
+      <section>
+        <h2>Key Value Store</h2>
+      </section>
+      <section>
+        Riak<br/>
+        Cassandra (column family)<br/>
+        Facebook - mysql
+      </section>
+      <section>
+        <h2>Document DB</h2>
+      </section>
+      <section>
+        <pre><code>
+{
+  "title": "example glossary",
+  "GlossEntry": {
+     "ID": "SGML",
+     "SortAs": "SGML",
+     "GlossTerm": "Standard Generalized Markup Language",
+     "Acronym": "SGML",
+     "Abbrev": "ISO 8879:1986",
+     "GlossDef": {
+        "para": "A meta-markup language, used to create markup languages such as DocBook.",
+        "GlossSeeAlso": ["GML", "XML"]
+      },
+      "GlossSee": "markup"
+   }
+} </code></pre>
+      </section>
+      <section>
+        Mongo<br/>
+        Couch<br/>
+        Eastic Search
+      </section>
+      <section>
+        <h2>New SQL</h2>
+        In memory distributed OLTP
+      </section>
+      <section>
+        VoltDB<br/>
+        NuoDB<br/>
+        SAP - Hana
+      </section>
+      <section>
+        <h2>Lambda Architecture</h2>
+      </section>
+      <section>
+        <img class="no-border" width="90%" src="img/lambda.jpg" /> <br/>
+      </section>
+
+      <section>
+        Sharding
+        Hive / Shark examples
+        Schemaless
+        Will RDBMS go away?
+        Michael Stonebraker - Software Engineering Radio
+      </section>
+      <section>
+        <h2>Discussion?</h2>
+      </section>
+    </section>
+
+
+
+    <section>
+      <section>
+        <h1>Cassandra</h1>
       </section>
       <section>
         Linear scalability<br>
@@ -135,11 +243,6 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
         Simple clustering<br>
         <br>
         HA
-      </section>
-    </section>
-    <section>
-      <section>
-        <h1>Cassandra</h1>
       </section>
       <section>
         <ul>
