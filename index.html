@@ -128,7 +128,7 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
         <h2>NoSQL - NewSQL</h2>
       </section>
       <section>
-        <img class="no-border" width="70%" src="img/bigdata-all.png" /> <br/>
+        <img class="no-border" src="img/bigdata-all.png" /> <br/>
       </section>
       <section>
         Commodity Hardware - CPU - RAM - Disk
@@ -146,6 +146,10 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
         All of the above...
       </section>
       <section>
+        Sharding<br>
+        Schemaless
+      </section>
+      <section>
         <h2>Map / Reduce - Hadoop</h2>
         (spark)
       </section>
@@ -155,6 +159,18 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
       </section>
       <section>
         <img class="no-border" width="70%" src="img/MapReduce.png" /> <br/>
+      </section>
+      <section>
+        Hive / Shark examples
+        <pre><code>
+SELECT r.business_id, name, AVG(cool) AS coolness
+FROM review r JOIN business b
+  ON (r.business_id = b.business_id)
+WHERE categories LIKE '%Restaurants%'
+  AND `date` = '$date'
+GROUP BY r.business_id, name
+ORDER BY coolness DESC
+LIMIT 10</code></pre>
       </section>
       <section>
         <h2>Graph DB - Neo4J / Titan</h2>
@@ -197,9 +213,9 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
 } </code></pre>
       </section>
       <section>
-        Mongo<br/>
-        Couch<br/>
-        Eastic Search
+        MongoDB<br/>
+        CouchDB<br/>
+        Elastic Search
       </section>
       <section>
         <h2>New SQL</h2>
@@ -216,20 +232,13 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
       <section>
         <img class="no-border" width="90%" src="img/lambda.jpg" /> <br/>
       </section>
-
       <section>
-        Sharding
-        Hive / Shark examples
-        Schemaless
-        Will RDBMS go away?
         Michael Stonebraker - Software Engineering Radio
       </section>
       <section>
         <h2>Discussion?</h2>
       </section>
     </section>
-
-
 
     <section>
       <section>
